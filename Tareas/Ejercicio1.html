@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio1</title>
+</head>
+<body>
+
+<!--Crea un formulario HTML que contenga dos campos de entrada: uno para un nombre y otro para un mensaje-->
+<form action="" id="formulario" name="formulario">
+
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre"><br><br>
+
+    <label for="mensaje">Mensaje:</label>
+    <input type="text" id="mensaje"><br><br>
+
+</form>
+
+<!--Agrega un botón de envío que, cuando se haga clic en él, tomará el valor de los campos de entrada y los agregará a una lista de mensajes-->
+
+<input type="submit" id="enviar" value="enviar"><br><br>
+
+
+<div id="lista">
+    <div id="item"></div>
+</div><br><br>
+
+<input type="button" id="borrar_todo" value="Borrar todo">
+    
+
+<script>
+
+    let boton_enviar=document.getElementById('enviar');
+    let lista=document.getElementById('lista');
+    let item=document.getElementById('item');
+
+    /*Cuando se agregue un nuevo mensaje a la lista, debe aparecer en la pantalla como un elemento de lista.*/
+
+    boton_enviar.addEventListener("click", hacerLista);
+
+    function hacerLista(e){
+        e.preventDefault();
+        let nombre=document.getElementById('nombre').value;
+        let mensaje=document.getElementById('mensaje').value;
+        let parrafo=document.createElement('span');
+        let salto_linea=document.createElement('br');
+        let boton_eliminar=document.createElement('button');
+        boton_eliminar.textContent="Eliminar";
+        boton_eliminar.id="eliminar-btn";
+        parrafo.textContent=nombre + ": " + mensaje + " ";
+        item.appendChild(parrafo);
+        item.appendChild(boton_eliminar);
+        item.appendChild(salto_linea);
+        lista.appendChild(item);
+        
+        //Cuando se haga clic en el botón de eliminación, se eliminará ese mensaje de la lista.
+        boton_eliminar.addEventListener("click",function(){
+            parrafo.remove();
+            boton_eliminar.remove();
+        })
+
+        /*Agrega una funcionalidad que permita editar un mensaje haciendo doble clic en él. Al hacer doble clic en un mensaje, 
+        se debe cambiar el mensaje por un campo de entrada para que pueda ser editado. Cuando se presione Enter en el campo de entrada, 
+        el mensaje editado debe guardarse y aparecer en la lista de mensajes.*/
+
+
+        item.addEventListener('dblclick',editar_lista);
+
+        function editar_lista(e){
+            if(e.target.tagName==="SPAN"){
+                let elemento_lista=e.target;
+                let input_editar=document.createElement('input');
+                input_editar.type="text";
+                input_editar.id="editar_input";
+                item.replaceChild(input_editar,elemento_lista);
+                let campo_editar=document.getElementById('editar_input');
+                
+                campo_editar.addEventListener('keydown',reempleazarElemento);
+
+                function reempleazarElemento(e){
+                    if(e.keyCode===13){
+                        //Me reemplazas donde está item el valor del elemento que contiene el evento (valor del input)
+                        item.textContent=e.target.value;
+                    }
+                }
+            }
+            
+        }
+
+    }
+
+//Agrega un botón de "Borrar todo" que, cuando se haga clic en él, eliminará todos los mensajes de la lista.
+
+let boton_borrar_lista=document.getElementById('borrar_todo');
+boton_borrar_lista.addEventListener("click",eliminar_lista);
+
+function eliminar_lista(e){
+    e.preventDefault();
+    lista.remove();
+}
+
+</script>
+</body>
+</html>

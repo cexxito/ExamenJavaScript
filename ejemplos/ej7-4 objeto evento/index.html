@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo 7.4 objeto evento</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <style>
+        #cartel {
+            background-color: yellow;
+            position: fixed;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h3>El objeto evento</h3>
+    <p>Cuando en una página se produce un evento del tipo que sea, el navegador crea un objeto que contiene información asociada: coordenadas del cursor, teclas pulsadas, elemento que ha activado el evento, etc.</p>
+    <p>¿Cómo podemos acceder a este objeto? Ya sabemos que, al producirse el evento, se puede ejecutar una función que hayamos asociado a él. Pues esta función puede recibir un parámetro que será una referencia al objeto evento creado.</p>
+    <p>Puedes encontrar las propiedades del objeto en <a href="https://www.w3schools.com/jsref/dom_obj_event_prop.asp" target='_blank'>este enlace</a>.</p>
+    <h4>Ejemplo 1: elemento activado (<code>target</code>)</h4>
+    <div class='ejemplo' id='ejemplo1'>
+        <p id='parrafo11'>Uno.</p>
+        <p id='parrafo12'>Dos.</p>
+        <p id='parrafo13'>Tres.</p>
+    </div>
+    <h4>Ejemplo 2: coordenadas del cursor (<code>client</code>)</h4>
+    <div class='ejemplo' id='ejemplo2'>
+        <div id='cartel'>Te persigo.</div>
+        <p>Aquí hay un texto que persigue al cursor.</p>
+    </div>
+
+    <h4>Ejemplo 3: tecla pulsada (<code>target</code>)</h4>
+    <div class='ejemplo' id='ejemplo3'>
+        <p id='parrafo31'>Pulsa las teclas alt+p para añadir un párrafo.</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo 7.6.2 input</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+</head>
+
+<body>
+    <h3>Input</h3>
+    <p>Hay cuatro elementos de tipo entrada de texto: <code>text, password, textarea y hidden</code>. Para poder usar estos objetos, podemos acceder a ellos a través de los campos id o name que asignemos a cada uno. Lo recomendable es que ambos campos se llamen igual.</p>
+    <p>Cuando se envían los datos de un formulario al servidor, lo que se envía son los atributos <code>name</code> y sus valores (atributo <code>value</code>). El valor siempre será una cadena de texto.</p>
+    <form id='formulario' name='formBusqueda' action="">
+        <p>
+            <input type="text" id='input' name='input'>
+            <button type="submit" id='submit' name='submit' hidden>Buscar...</button>
+            <span id=mensaje style="color: red"></span>
+        </p> 
+    </form>
+    <script src="script.js"></script>
+</body>
+
+</html>

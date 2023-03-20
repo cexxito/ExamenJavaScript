@@ -1,0 +1,9 @@
+.cantidad {
+    width: 2em;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.borrar {
+    color: red;
+}

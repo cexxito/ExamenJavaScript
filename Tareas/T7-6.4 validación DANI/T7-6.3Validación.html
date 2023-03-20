@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Aplicación de incidencias</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="contenedor">
+      <h1>Aplicación de incidencias</h1>
+      <label for="area">Tipo de incidencia:</label>
+      <select id="area">
+        <option value="distribucion">Distribución</option>
+        <option value="oficina">Oficina</option>
+        <option value="produccion">Producción</option>
+      </select>
+
+      <!-- <label for="texto">Número de serie:<input type="text"></label> -->
+      <form>
+        <label for="info-numero-serie">info:3 números, 4 letras mayúsculas y acabar con  1 , 2 o  A</label>
+        <br>
+        <label for="numero-serie">Número de serie:</label>
+        <input type="text" id="numero-serie" name="numero-serie" pattern="[0-9]{3}[A-Z]{4}[12A]" required>
+        <button type="submit">Enviar</button>
+      </form>
+      
+
+      <button id="boton">Mostrar descripción</button>
+      <div id="descripcion" class="oculto">
+        <label for="texto">Descripción:</label>
+        <textarea id="texto" rows="4"></textarea>  
+      </div>
+
+      <button id="boton2">Enviar datos</button>
+
+    </div>
+    <img id="imagen" src="distribucion.jpg" alt="Imagen de la zona de distribución">
+    <script src="script.js"></script>
+  </body>
+</html>

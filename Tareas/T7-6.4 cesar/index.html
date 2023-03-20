@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T7-6.3</title>
+    <style>
+		input.error {
+			border-color: red;
+		}
+		#mensaje-error {
+			color: red;
+			font-weight: bold;
+			display: none;
+		}
+        #miTextarea {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+    <h1>INFORME DE INCIDENCIA</h1>
+    <form>
+        <select name="group" id="group" onchange="changeImage()">
+            <option value="distribucion" selected="true" id="group-0">Distribución</option>
+            <option value="oficina" id="group-1">Oficina</option>
+            <option value="produccion" id="group-2">Producción</option>
+        </select>
+        <br>
+        <br>
+        <label for="name">Número de serie</label>
+        <input type="text" name="name" access="false" id="name">
+        <br>
+        <div id="mensaje-error">Introduce un valor válido</div>
+        <br>
+        <br>
+        <button id="miBoton">Mostrar Descripción</button>
+        <br>
+        <div id="miTextarea">
+            <textarea ></textarea>
+        </div>
+        
+        
+
+        <br>
+        <br>
+        <button type="submit">Enviar Datos</button>
+    </form>
+
+    <img id="img0" src="img/distribucion.jpg">
+    <img id="img1" style="display:none" src="img/oficina.jfif">
+    <img id="img2" style="display:none" src="img/produccion.jfif">
+<script src="script.js"></script>
+</body>
+</html>
